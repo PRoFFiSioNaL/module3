@@ -10,9 +10,9 @@ void SUCCESS(){
 }
 
 int main(int argc, char *argv[]){
-    pid_t pid = fork();
+    pid_t pid;
     int rv;
-    switch(pid){
+    switch(pid = fork()){
         case -1:
             perror("Fail fork\n");
             exit(EXIT_FAILURE);
