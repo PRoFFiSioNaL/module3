@@ -5,10 +5,14 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-int main(){
+int main(int argc, char* argv[]){
+    if (argc != 2) {
+        puts("Ошибка ввода аргументов");
+        exit(EXIT_FAILURE);
+    }
     char str[80];
     FILE* fp;
-    if ((fp = fopen("temp.txt", "r")) == NULL) {
+    if ((fp = fopen(argv[1], "r")) == NULL) {
         perror("Ошибка открытия файла");
         exit(EXIT_FAILURE);
     }

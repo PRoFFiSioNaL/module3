@@ -3,12 +3,17 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 
-int main(){
+int main(int argc, char* argv[]){
+    if (argc != 2) {
+        puts("Ошибка ввода аргументов");
+        exit(EXIT_FAILURE);
+    }
     char str[80];
     int fd;
-    if ((fd = open("temp.txt", O_WRONLY)) == -1) {
+    if ((fd = open(argv[1], O_WRONLY|O_CREAT)) == -1) {
         perror("Ошибка открытия файла");
         exit(EXIT_FAILURE);
     }
