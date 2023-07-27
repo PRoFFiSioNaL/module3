@@ -37,7 +37,6 @@ int main() {
     }
     strcat(result, path);
     strcat(result, args[0]);
-    puts(result);
     //-----------------------------------------------------------------------------------------------
     int rv1, rv2, rv3;
     pid_t pid_first;
@@ -71,7 +70,6 @@ int main() {
         }
         strcat(result, path);
         strcat(result, args[1]);
-        puts(result);
         //-----------------------------------------------------------------------------------------------
         if (j != 0) {
             pid_t pid_second;
@@ -110,7 +108,6 @@ int main() {
                 }
                 strcat(result, path);
                 strcat(result, args[2]);
-                puts(result);
                 //-----------------------------------------------------------------------------------------------
                 if (j != 1) {
                     switch (pid_second = fork()) {
