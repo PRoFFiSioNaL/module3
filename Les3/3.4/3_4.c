@@ -4,8 +4,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-static int count = 0;
-
 void listener(int sig) {
     switch (sig)
     {
@@ -31,12 +29,12 @@ int main() {
     signal(SIGINT, listener);
     signal(SIGQUIT, listener);
     int counter = 0;
-    do {
+    while (1) {
         fprintf(fp, "%d ", counter);
         printf("Cчетчик = %d\n", counter);
         sleep(1);
         counter++;
-    } while (count < 3);
+    }
     
     fclose(fp);
     exit(EXIT_SUCCESS);
